@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="container mt-5 container-formulario">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+            <!-- Nome do Time -->
+            <div class="mb-3">
+                <label for="nomeTime" class="form-label">Nome do Time</label>
+                <input type="text" id="nomeTime" class="form-control" name="nomeTime" [(ngModel)]="nomeTime" required
+                    #nomeTimeRef="ngModel" />
+                <div *ngIf="nomeTimeRef.invalid && nomeTimeRef.touched" class="text-danger">
+                    Nome do time é obrigatório.
+                </div>
+            </div>
+
+            <!-- Período -->
+            <div class="mb-3">
+                <label for="periodo" class="form-label">Período</label>
+                <input type="text" id="periodo" class="form-control" name="periodo" [(ngModel)]="periodo" required
+                    #periodoRef="ngModel" />
+                <div *ngIf="periodoRef.invalid && periodoRef.touched" class="text-danger">
+                    Período é obrigatório.
+                </div>
+            </div>
+
+            <!-- Modalidade -->
+            <div class="mb-3">
+                <label for="modalidade" class="form-label">Modalidade</label>
+                <select id="modalidade" class="form-select" name="modalidade" [(ngModel)]="modalidade" required
+                    #modalidadeRef="ngModel">
+                    <option value="" disabled selected>Selecione a modalidade</option>
+                    <option value="Futebol">Futebol</option>
+                    <option value="Basquete">Basquete</option>
+                    <option value="Vôlei">Vôlei</option>
+                </select>
+                <div *ngIf="modalidadeRef.invalid && modalidadeRef.touched" class="text-danger">
+                    Modalidade é obrigatória.
+                </div>
+            </div>
+
+            <!-- Gênero -->
+            <div class="mb-3">
+                <label class="form-label">Gênero</label>
+                <div class="form-check">
+                    <input type="radio" id="masculino" class="form-check-input" name="genero" [(ngModel)]="genero"
+                        value="Masculino" required />
+                    <label for="masculino" class="form-check-label">Masculino</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="feminino" class="form-check-input" name="genero" [(ngModel)]="genero"
+                        value="Feminino" />
+                    <label for="feminino" class="form-check-label">Feminino</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="misto" class="form-check-input" name="genero" [(ngModel)]="genero"
+                        value="Misto" />
+                    <label for="misto" class="form-check-label">Misto</label>
+                </div>
+                <div *ngIf="!genero && form.submitted" class="text-danger">
+                    Gênero é obrigatório.
+                </div>
+            </div>
+
+            <!-- Observações -->
+            <div class="mb-3">
+                <label for="observacoes" class="form-label">Observações (ex: nome dos integrantes)</label>
+                <textarea id="observacoes" class="form-control text-area" name="observacoes" [(ngModel)]="observacoes"
+                    rows="3"></textarea>
+            </div>
+
+            <!-- Botão de Enviar -->
+            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+                Enviar
+            </button>
+        </form>
+    </div>
+</div>

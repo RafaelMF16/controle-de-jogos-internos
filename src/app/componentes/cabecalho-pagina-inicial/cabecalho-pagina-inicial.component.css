@@ -1,0 +1,9 @@
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-navbar {
+    background-color: white;
+    border-bottom: 2px solid black;
+}
