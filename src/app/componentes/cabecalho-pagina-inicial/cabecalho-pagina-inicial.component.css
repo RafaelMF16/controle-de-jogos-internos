@@ -1,9 +1,36 @@
-h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
+.header-navbar .navbar-brand,
+.header-navbar .nav {
+    transition: all 0.3s ease;
+}
+/* Estilo para telas grandes */
+@media (min-width: 992px) {
+    .header-navbar {
+        flex-direction: row;
+    }
+    .header-navbar .navbar-brand {
+        margin-bottom: 0;
+        margin-right: auto;
+    }
+    .header-navbar .nav {
+        flex-direction: row;
+        margin-left: auto;
+    }
+}
+/* Estilo para telas pequenas */
+@media (max-width: 991px) {
+    .header-navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-navbar .navbar-brand {
+        margin-bottom: 1rem;
+    }
+    .header-navbar .nav {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.header-navbar {
-    background-color: white;
-    border-bottom: 2px solid black;
+.nav-link {
+    cursor: pointer;
 }
