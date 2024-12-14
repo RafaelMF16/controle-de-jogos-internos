@@ -23,5 +23,5 @@ export const routes: Routes = [
     {
         path: 'confrontos-e-resultados',
         component: ConfrontosResultadosComponent
-    }
+    },
 ];

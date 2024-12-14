@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { ConfrontosComponent } from "../../componentes/confrontos/confrontos.component";
-import { CabecalhoFormularioComponent } from "../../componentes/cabecalho-formulario/cabecalho-formulario.component";
+import { CabecalhoComponent } from "../../componentes/cabecalho/cabecalho.component";
 
 @Component({
   selector: 'app-confrontos-resultados',
-  imports: [ConfrontosComponent, CabecalhoFormularioComponent],
+  imports: [
+    ConfrontosComponent,
+    CabecalhoComponent
+],
   templateUrl: './confrontos-resultados.component.html',
   styleUrl: './confrontos-resultados.component.css'
 })

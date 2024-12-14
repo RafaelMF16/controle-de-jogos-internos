@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfrontosService } from '../../services/Confrontos.service';
+import { ConfrontosService } from '../../services/confrontos.service';
 
 @Component({
   selector: 'app-confrontos',
@@ -21,7 +21,7 @@ export class ConfrontosComponent implements OnInit{
     this.confrontosService.getConfrontos().subscribe(
       (data) => {
         console.log(data);
-        this.confrontos = data // Acessa o array `confrontos` do JSON
+        this.confrontos = data.confrontos // Acessa o array `confrontos` do JSON
         this.loading = false;
       },
       (error) => {

@@ -22,11 +22,11 @@ export interface ConfrontosResponse {
   providedIn: 'root',
 })
 export class ConfrontosService {
-  private apiUrl = 'https://localhost:7049/api/Confrontos';
+  private apiUrl = 'https://api-controle-de-jogos-internos.onrender.com/confrontos';
 
   constructor(private http: HttpClient) {}
 
-  getConfrontos(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getConfrontos(): Observable<ConfrontosResponse> {
+    return this.http.get<ConfrontosResponse>(this.apiUrl, {withCredentials: true})
   }
 }
