@@ -1,14 +1,13 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Tooltip } from 'bootstrap';
 
 @Component({
-  selector: 'app-cabecalho-formulario',
-  standalone: true,
+  selector: 'app-cabecalho',
   imports: [],
-  templateUrl: './cabecalho-formulario.component.html',
-  styleUrl: './cabecalho-formulario.component.css'
+  templateUrl: './cabecalho.component.html',
+  styleUrl: './cabecalho.component.css'
 })
-export class CabecalhoFormularioComponent {
+export class CabecalhoComponent {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {

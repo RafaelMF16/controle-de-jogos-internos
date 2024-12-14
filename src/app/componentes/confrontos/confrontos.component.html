@@ -1,0 +1,46 @@
+<div class="container my-4">
+    <h2 class="text-center mb-4">Confrontos e Resultados</h2>
+
+    <!-- Spinner enquanto carrega -->
+    <div *ngIf="loading" class="text-center my-4">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Carregando...</span>
+        </div>
+    </div>
+
+    <!-- Lista de confrontos -->
+    <div *ngIf="!loading && confrontos.length > 0">
+        <div *ngFor="let confronto of confrontos" class="mb-4">
+            <!-- Data do confronto -->
+            <h4 class="text-center mb-3">{{ confronto.data | date:'longDate' }}</h4>
+            <div class="list-group">
+                <!-- Itera sobre as partidas -->
+                <div *ngFor="let partida of confronto.partidas" class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ partida.timeA }}</strong>
+                            <span class="text-muted"> vs </span>
+                            <strong>{{ partida.timeB }}</strong>
+                        </div>
+                        <div>
+                            <span class="text-muted">{{ partida.horario }}</span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <span *ngIf="partida.resultado" class="badge bg-success">
+                            {{ partida.resultado }}
+                        </span>
+                        <span *ngIf="!partida.resultado" class="text-muted">
+                            Aguardando resultado
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caso não existam confrontos -->
+    <div *ngIf="!loading && confrontos.length === 0" class="text-center">
+        <p class="text-muted">Nenhum confronto disponível no momento.</p>
+    </div>
+</div>
