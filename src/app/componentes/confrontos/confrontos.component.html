@@ -27,12 +27,22 @@
                         </div>
                     </div>
                     <div class="mt-2">
+                        <!-- Resultado -->
                         <span *ngIf="partida.resultado" class="badge bg-success">
                             {{ partida.resultado }}
                         </span>
                         <span *ngIf="!partida.resultado" class="text-muted">
                             Aguardando resultado
                         </span>
+                    </div>
+                    <div class="mt-2">
+                        <!-- Modalidade e Gênero -->
+                        <div class="text-muted">
+                            <strong>Modalidade:</strong> {{ partida.modalidade }}
+                        </div>
+                        <div class="text-muted">
+                            <strong>Gênero:</strong> {{ partida.genero }}
+                        </div>
                     </div>
                 </div>
             </div>

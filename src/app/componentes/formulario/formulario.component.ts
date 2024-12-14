@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -18,6 +19,8 @@ export class FormularioComponent {
   modalidade = '';
   genero = '';
   observacoes = '';
+
+  constructor(private router: Router) {}
 
   onSubmit(form: any) {
     if (form.valid) {
@@ -37,6 +40,8 @@ export class FormularioComponent {
         (result: EmailJSResponseStatus) => {
           console.log('E-mail enviado com sucesso!', result.text);
           alert('E-mail enviado com sucesso!');
+          form.resetForm();
+          this.router.navigate(['/pagina-inicial']);
         },
         (error) => {
           console.error('Erro ao enviar o e-mail', error.text);

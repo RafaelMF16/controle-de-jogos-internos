@@ -3,7 +3,7 @@
         <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
             <!-- Nome do Time -->
             <div class="mb-3">
-                <label for="nomeTime" class="form-label">Nome do Time</label>
+                <label for="nomeTime" class="form-label">Nome/Time</label>
                 <input type="text" id="nomeTime" class="form-control" name="nomeTime" [(ngModel)]="nomeTime" required
                     #nomeTimeRef="ngModel" />
                 <div *ngIf="nomeTimeRef.invalid && nomeTimeRef.touched" class="text-danger">
@@ -27,9 +27,15 @@
                 <select id="modalidade" class="form-select" name="modalidade" [(ngModel)]="modalidade" required
                     #modalidadeRef="ngModel">
                     <option value="" disabled selected>Selecione a modalidade</option>
-                    <option value="Futebol">Futebol</option>
+                    <option value="Futsal">Futsal</option>
                     <option value="Basquete">Basquete</option>
                     <option value="Vôlei">Vôlei</option>
+                    <option value="Handebol">Handebol</option>
+                    <option value="Tênis de mesa">Tênis de mesa</option>
+                    <option value="Natação">Natação</option>
+                    <option value="Xadrez">Xadrez</option>
+                    <option value="Jogo Virtual">Jogo Virtual</option>
+                    <option value="Queimada">Queimada</option>
                 </select>
                 <div *ngIf="modalidadeRef.invalid && modalidadeRef.touched" class="text-danger">
                     Modalidade é obrigatória.
