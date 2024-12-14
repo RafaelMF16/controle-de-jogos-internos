@@ -19,14 +19,14 @@
 
                     <!-- Time A -->
                     <div class="mb-2">
-                        <label for="timeA-{{ i }}" class="form-label">Time A</label>
+                        <label for="timeA-{{ i }}" class="form-label">Time A / Aluno</label>
                         <input type="text" id="timeA-{{ i }}" class="form-control" [(ngModel)]="confronto.timeA"
                             name="timeA-{{ i }}" required />
                     </div>
 
                     <!-- Time B -->
                     <div class="mb-2">
-                        <label for="timeB-{{ i }}" class="form-label">Time B</label>
+                        <label for="timeB-{{ i }}" class="form-label">Time B / Aluno</label>
                         <input type="text" id="timeB-{{ i }}" class="form-control" [(ngModel)]="confronto.timeB"
                             name="timeB-{{ i }}" required />
                     </div>
@@ -44,9 +44,15 @@
                         <select id="modalidade-{{ i }}" class="form-select" [(ngModel)]="confronto.modalidade"
                             name="modalidade-{{ i }}" required>
                             <option value="" disabled selected>Selecione a modalidade</option>
-                            <option value="Futebol">Futebol</option>
+                            <option value="Futsal">Futsal</option>
                             <option value="Basquete">Basquete</option>
                             <option value="Vôlei">Vôlei</option>
+                            <option value="Handebol">Handebol</option>
+                            <option value="Tênis de mesa">Tênis de mesa</option>
+                            <option value="Natação">Natação</option>
+                            <option value="Xadrez">Xadrez</option>
+                            <option value="Jogo Virtual">Jogo Virtual</option>
+                            <option value="Queimada">Queimada</option>
                         </select>
                     </div>
 
