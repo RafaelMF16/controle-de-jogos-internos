@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { FormularioInscricaoComponent } from './paginas/formulario-inscricao/formulario-inscricao.component';
 import { PaginaInicialComponent } from './paginas/pagina-inicial/pagina-inicial.component';
 import { ConfrontosResultadosComponent } from './paginas/confrontos-resultados/confrontos-resultados.component';
+import { AtualizarConfrontosComponent } from './paginas/atualizar-confrontos/atualizar-confrontos.component';
 
 export const routes: Routes = [
     {
@@ -24,4 +25,9 @@ export const routes: Routes = [
         path: 'confrontos-e-resultados',
         component: ConfrontosResultadosComponent
     },
+
+    {
+        path: 'atualizar-confrontos',
+        component: AtualizarConfrontosComponent
+    }
 ];
