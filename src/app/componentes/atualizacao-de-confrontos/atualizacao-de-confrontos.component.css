@@ -1,0 +1,37 @@
+.container-formulario {
+    border-radius: 16px;
+    border: 1px solid black;
+    background: #f8f9fa;
+    box-shadow: 0px 8px 16px 0px rgba(61, 139, 253, 0.15);
+    max-width: 600px;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .container-formulario {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-formulario {
+        padding: 15px;
+        margin: 20px;
+    }
+}
+
+.d-flex.justify-content-between {
+    gap: 10px;
+    /* Espaço entre os botões */
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.text-area {
+    resize: none;
+}

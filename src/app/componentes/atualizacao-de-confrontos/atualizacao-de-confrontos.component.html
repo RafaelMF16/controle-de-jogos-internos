@@ -1,1 +1,98 @@
-<p>atualizacao-de-confrontos works!</p>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="container mt-5 container-formulario">
+        <form #form="ngForm" (ngSubmit)="aoClicarEmAtualizarConfrontos(form)" novalidate>
+            <!-- Data do Confronto -->
+            <div class="mb-3">
+                <label for="dataConfronto" class="form-label">Data do Confronto</label>
+                <input type="date" id="dataConfronto" class="form-control" name="dataConfronto"
+                    [(ngModel)]="dataConfronto" required #dataConfrontoRef="ngModel" />
+                <div *ngIf="dataConfrontoRef.invalid && dataConfrontoRef.touched" class="text-danger">
+                    A data é obrigatória.
+                </div>
+            </div>
+
+            <!-- Lista de Confrontos -->
+            <div class="mb-3">
+                <h5>Confrontos do Dia</h5>
+                <div *ngFor="let confronto of confrontos; let i = index" class="mb-3 border p-3">
+                    <h6>Confronto {{ i + 1 }}</h6>
+
+                    <!-- Time A -->
+                    <div class="mb-2">
+                        <label for="timeA-{{ i }}" class="form-label">Time A</label>
+                        <input type="text" id="timeA-{{ i }}" class="form-control" [(ngModel)]="confronto.timeA"
+                            name="timeA-{{ i }}" required />
+                    </div>
+
+                    <!-- Time B -->
+                    <div class="mb-2">
+                        <label for="timeB-{{ i }}" class="form-label">Time B</label>
+                        <input type="text" id="timeB-{{ i }}" class="form-control" [(ngModel)]="confronto.timeB"
+                            name="timeB-{{ i }}" required />
+                    </div>
+
+                    <!-- Horário -->
+                    <div class="mb-2">
+                        <label for="horario-{{ i }}" class="form-label">Horário</label>
+                        <input type="time" id="horario-{{ i }}" class="form-control" [(ngModel)]="confronto.horario"
+                            name="horario-{{ i }}" required />
+                    </div>
+
+                    <!-- Modalidade -->
+                    <div class="mb-2">
+                        <label for="modalidade-{{ i }}" class="form-label">Modalidade</label>
+                        <select id="modalidade-{{ i }}" class="form-select" [(ngModel)]="confronto.modalidade"
+                            name="modalidade-{{ i }}" required>
+                            <option value="" disabled selected>Selecione a modalidade</option>
+                            <option value="Futebol">Futebol</option>
+                            <option value="Basquete">Basquete</option>
+                            <option value="Vôlei">Vôlei</option>
+                        </select>
+                    </div>
+
+                    <!-- Gênero -->
+                    <div class="mb-2">
+                        <label class="form-label">Gênero</label>
+                        <div class="form-check">
+                            <input type="checkbox" id="masculino-{{ i }}" class="form-check-input"
+                                [(ngModel)]="confronto.generoMasculino" name="masculino-{{ i }}" />
+                            <label for="masculino-{{ i }}" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="feminino-{{ i }}" class="form-check-input"
+                                [(ngModel)]="confronto.generoFeminino" name="feminino-{{ i }}" />
+                            <label for="feminino-{{ i }}" class="form-check-label">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="misto-{{ i }}" class="form-check-input"
+                                [(ngModel)]="confronto.generoMisto" name="misto-{{ i }}" />
+                            <label for="misto-{{ i }}" class="form-check-label">Misto</label>
+                        </div>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div class="mb-2">
+                        <label for="resultado-{{ i }}" class="form-label">Resultado</label>
+                        <input type="text" id="resultado-{{ i }}" class="form-control" [(ngModel)]="confronto.resultado"
+                            name="resultado-{{ i }}" />
+                    </div>
+
+                    <!-- Remover Confronto -->
+                    <button type="button" class="btn btn-danger btn-sm" (click)="removerConfronto(i)">
+                        Remover
+                    </button>
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="d-flex justify-content-between mt-3">
+                <button type="button" class="btn btn-secondary" (click)="adicionarConfronto()">
+                    Adicionar Confronto
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid || confrontos.length === 0">
+                    Atualizar Confrontos
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

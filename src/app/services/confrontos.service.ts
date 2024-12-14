@@ -29,4 +29,15 @@ export class ConfrontosService {
   getConfrontos(): Observable<ConfrontosResponse> {
     return this.http.get<ConfrontosResponse>(this.apiUrl, {withCredentials: true})
   }
+
+  atualizarConfrontos(payload: any) {
+    const token = payload.token;
+    const confronto = payload.confronto;
+  
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+  
+    return this.http.post(this.apiUrl, confronto, { headers });
+  }
 }
